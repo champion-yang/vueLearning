@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+            <tr v-for="data in users" >
+                <td v-for="v in data">{{ v }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            users:[
+                {name:'zhangsan',
+                age:'19',
+                sex:'man'},
+                {name:'lisi',
+                age:'18',
+                sex:'man'},
+                {name:'wangwu',
+                age:'16',
+                sex:'women'}
+            ]
+        }
+    })
+</script>
+</html>

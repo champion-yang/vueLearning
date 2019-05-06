@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>姓名：</span>
+        <input type="text" v-model="newPeople.name">
+        <span>性别：</span>
+        <select name="" id="" v-model="newPeople.sex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        <span>年龄：</span>
+        <input type="text" v-model="newPeople.age">
+        <span><button @click="addUser">添加</button></span>
+
+        <hr>
+
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(data,index) in people">
+                <td >{{ data.name }}</td>
+                <td >{{ data.sex }}</td>
+                <td >{{ data.age }}</td>
+                <td ><button @click="delUser(index)">del</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            people:[
+                {name:'John',age:'20',sex:'男'},
+                {name:'Jack',age:'20',sex:'男'},
+                {name:'Mary',age:'20',sex:'男'},
+            ],
+            newPeople:{
+                name:'',
+                age:'20',
+                sex:'男'
+            }
+        },
+        methods:{
+            addUser:function addUser() {
+                console.log(this.people)
+                this.people.push(this.newPeople)
+                console.log(this.people)
+                this.newPeople = {
+                    name:'',
+                    age:'20',
+                    sex:'男'
+                }
+            },
+            delUser:function delUser(i){
+                this.people.splice(i,1)
+            }
+        }
+    })
+</script>
+</html>

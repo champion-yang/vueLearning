@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{ msg + '哈哈'}}</div>
+        <div>{{ title + 100/20 }}</div>
+        <hr>
+        <div v-text="msg + '哈哈'"></div>
+        <div v-html="msg + 1008%3"></div>
+        <div v-html="title.slice(1,3)"></div>,
+        <div v-html="Math.random()"></div>
+        <hr>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:'我是你爸爸！msg',
+            title:'<b>这是</b>一个title！'
+        }
+    })
+</script>
+</html>
